@@ -19,11 +19,12 @@ public class Game {
 		window.setLocationRelativeTo(null);
 		panel =  new GamePanel(dim);
 		window.add(panel);
+		window.setVisible(true);
+		window.setAutoRequestFocus(true);
 	}
 	
 	public void run() {
 		gameLoop = new Thread(this.panel);
-		window.setVisible(true);
 		gameLoop.start();
 	}
 	
