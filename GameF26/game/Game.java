@@ -27,6 +27,7 @@ public class Game extends JPanel implements Runnable{
 		this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.window.setLocationRelativeTo(null);
 		this.window.setResizable(false);
+		this.setDoubleBuffered(true);
 		this.setPreferredSize(dim);
 		this.window.add(this);
 		this.setBackground(Color.black);
@@ -52,6 +53,7 @@ public class Game extends JPanel implements Runnable{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		this.render(g);
+		g.dispose();
 		Toolkit.getDefaultToolkit().sync();
 	}
 	
