@@ -15,7 +15,7 @@ public class Game extends JPanel implements Runnable{
 	public boolean running;
 	public Thread gameLoop;
 	public Ball ball;
-	public Player player;
+	public Ship ship;
 	
 	public Game() {}
 	
@@ -32,21 +32,21 @@ public class Game extends JPanel implements Runnable{
 		this.window.add(this);
 		this.setBackground(Color.black);
 		this.ball = new Ball(150,150,1,75,Color.blue);
-		this.player = new Player(400,500,3,100,Color.green);
-		this.addKeyListener(player);
+		this.ship = new Ship(400,400,2);
+		this.addKeyListener(this.ship);
 		this.window.setVisible(true);
 		this.requestFocusInWindow();
 		this.start();
 	}
 	
 	public void update() {
+		ship.update();
 		ball.update();
-		player.update();
 	}
 	
 	public void render(Graphics g) {
+		ship.render(g);
 		ball.render(g);
-		player.render(g);
 	}
 	
 	@Override
